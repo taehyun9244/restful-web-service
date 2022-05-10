@@ -39,4 +39,13 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(locatrion).build();
     }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+        User user = userDaoService.deleteById(id);
+
+        if (user == null){
+            throw new UserNotFoundException(String.format("ID[%s] not found", id));
+        }
+    }
 }
