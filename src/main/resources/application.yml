@@ -3,3 +3,7 @@ server:
 
 logging.level:
   org.hibernate.SQL: debug
+
+spring:
+  messages:
+    basename: messages
