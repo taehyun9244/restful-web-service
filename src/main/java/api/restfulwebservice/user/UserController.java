@@ -34,11 +34,11 @@ public class UserController {
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
         User savedUser = userDaoService.save(user);
 
-        URI locatrion = ServletUriComponentsBuilder.fromCurrentRequestUri()
+        URI location = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}")
                 .buildAndExpand(savedUser.getId())
                 .toUri();
-        return ResponseEntity.created(locatrion).build();
+        return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping("/users/{id}")
